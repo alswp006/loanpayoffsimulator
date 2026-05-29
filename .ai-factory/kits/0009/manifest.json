@@ -1,0 +1,15 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0009",
+  "title": "S1 홈(/) 대출 목록 페이지 구현",
+  "files": [
+    "src/pages/Home.tsx"
+  ],
+  "dependsOn": [
+    "0004",
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:05.300Z",
+  "status": "kit_ready"
+}

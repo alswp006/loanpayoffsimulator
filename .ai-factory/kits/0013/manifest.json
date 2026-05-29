@@ -1,0 +1,17 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0013",
+  "title": "S5 상세 스케줄(/schedule) 구현 + 리워드 게이트 + 가상 스크롤",
+  "files": [
+    "src/pages/Schedule.tsx"
+  ],
+  "dependsOn": [
+    "0004",
+    "0008",
+    "0001",
+    "0003"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:05.929Z",
+  "status": "kit_ready"
+}

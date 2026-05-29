@@ -1,0 +1,15 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0006",
+  "title": "단일 전략 요약 시뮬레이션(Snowball/Avalanche)",
+  "files": [
+    "src/lib/simulation/simulateStrategySummary.ts"
+  ],
+  "dependsOn": [
+    "0001",
+    "0005"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:04.848Z",
+  "status": "kit_ready"
+}

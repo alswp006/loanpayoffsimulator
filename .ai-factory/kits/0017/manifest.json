@@ -1,0 +1,14 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0017",
+  "title": "라우팅 와이어링 + Provider 연결 + 통합 폴리시",
+  "files": [
+    "src/App.tsx"
+  ],
+  "dependsOn": [
+    "0016"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:06.404Z",
+  "status": "kit_ready"
+}

@@ -1,0 +1,12 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0001",
+  "title": "도메인/스토리지 타입 + RouteState 계약 정의",
+  "files": [
+    "src/lib/types.ts"
+  ],
+  "dependsOn": [],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:04.139Z",
+  "status": "kit_ready"
+}

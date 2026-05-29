@@ -1,0 +1,16 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0011",
+  "title": "S3 시뮬레이션 설정(/simulate) 구현 + run 저장/이동",
+  "files": [
+    "src/pages/Simulate.tsx"
+  ],
+  "dependsOn": [
+    "0004",
+    "0007",
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:05.662Z",
+  "status": "kit_ready"
+}

@@ -1,0 +1,20 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0015",
+  "title": "라우팅/Provider Wiring (App.tsx)",
+  "files": [
+    "src/App.tsx"
+  ],
+  "dependsOn": [
+    "0009",
+    "0010",
+    "0011",
+    "0012",
+    "0013",
+    "0014",
+    "0004"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:06.165Z",
+  "status": "kit_ready"
+}

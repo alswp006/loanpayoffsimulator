@@ -1,0 +1,17 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0003",
+  "title": "Runs/RewardUnlocks/Settings localStorage API + eviction(FIFO)",
+  "files": [
+    "src/lib/storage/runs.ts",
+    "src/lib/storage/rewardUnlocks.ts",
+    "src/lib/storage/settings.ts"
+  ],
+  "dependsOn": [
+    "0001",
+    "0002"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:04.444Z",
+  "status": "kit_ready"
+}

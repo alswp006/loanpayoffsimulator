@@ -1,0 +1,16 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0002",
+  "title": "Loans localStorage API 구현 (파싱/검증/Quota/Reset)",
+  "files": [
+    "src/lib/storage/schema.ts",
+    "src/lib/storage/errors.ts",
+    "src/lib/storage/loans.ts"
+  ],
+  "dependsOn": [
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:04.306Z",
+  "status": "kit_ready"
+}

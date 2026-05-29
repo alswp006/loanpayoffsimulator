@@ -1,0 +1,15 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0010",
+  "title": "S2 대출 추가/수정 폼(/loan/new, /loan/edit) 구현",
+  "files": [
+    "src/pages/LoanForm.tsx"
+  ],
+  "dependsOn": [
+    "0004",
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:05.485Z",
+  "status": "kit_ready"
+}

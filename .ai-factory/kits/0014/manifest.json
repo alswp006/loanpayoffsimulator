@@ -1,0 +1,14 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0014",
+  "title": "S6 설정/도움말(/settings) 구현 (전략/입력 가이드 BottomSheet)",
+  "files": [
+    "src/pages/Settings.tsx"
+  ],
+  "dependsOn": [
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:06.046Z",
+  "status": "kit_ready"
+}

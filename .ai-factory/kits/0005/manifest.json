@@ -1,0 +1,16 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0005",
+  "title": "시뮬레이션 엔진 기반: 상수/이자 계산/오류 코드",
+  "files": [
+    "src/lib/simulation/constants.ts",
+    "src/lib/simulation/interest.ts",
+    "src/lib/simulation/errorCodes.ts"
+  ],
+  "dependsOn": [
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:04.720Z",
+  "status": "kit_ready"
+}

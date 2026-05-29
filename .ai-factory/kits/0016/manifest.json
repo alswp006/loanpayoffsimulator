@@ -1,0 +1,15 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0016",
+  "title": "전역 내비게이션(TabBar) + Safe-area 폴리시/UX 폴리시 마감",
+  "files": [
+    "src/components/MainTabBar.tsx",
+    "src/App.tsx"
+  ],
+  "dependsOn": [
+    "0015"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:06.284Z",
+  "status": "kit_ready"
+}

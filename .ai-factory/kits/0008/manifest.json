@@ -1,0 +1,16 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0008",
+  "title": "상세 스케줄 생성기(런타임) + 월별 행 구조",
+  "files": [
+    "src/lib/simulation/generateSchedule.ts"
+  ],
+  "dependsOn": [
+    "0001",
+    "0006",
+    "0007"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:05.128Z",
+  "status": "kit_ready"
+}

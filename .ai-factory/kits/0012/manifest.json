@@ -1,0 +1,15 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0012",
+  "title": "S4 결과 요약(/result) 구현 + Expired/복사/AdSlot",
+  "files": [
+    "src/pages/Result.tsx"
+  ],
+  "dependsOn": [
+    "0004",
+    "0001"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:05.813Z",
+  "status": "kit_ready"
+}

@@ -1,0 +1,17 @@
+{
+  "projectId": "proj-loanpayoffsimulator",
+  "packetId": "0004",
+  "title": "Loans/Runs/RewardUnlocks Store Provider 구성 (hydrate + actions)",
+  "files": [
+    "src/lib/store/loansStore.tsx",
+    "src/lib/store/runsStore.tsx",
+    "src/lib/store/rewardUnlocksStore.tsx"
+  ],
+  "dependsOn": [
+    "0002",
+    "0003"
+  ],
+  "platform": "toss",
+  "createdAt": "2026-05-29T17:38:04.593Z",
+  "status": "kit_ready"
+}
