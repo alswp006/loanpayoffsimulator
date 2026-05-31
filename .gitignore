@@ -4,3 +4,6 @@ dist/
 .env
 .env.local
 coverage/
+test-results/
+playwright-report/
+e2e/.last-run.json
