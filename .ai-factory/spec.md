@@ -821,4 +821,8 @@ export function unlockRunId(
   - And `"상세 스케줄 보기"` 버튼은 `disabled=true`이다
 
 - AC-3 [W][P1] (Unwanted): **IF** runId가 누락되면 **THEN** 오류 안내와 시뮬레이션 이동 CTA를 표시한다
-  - Given localStorage `lps_runs_v1.items`가 비어있지 않더라도 사용자가 `/
+  - Given localStorage `lps_runs_v1.items`가 비어있지 않더라도 사용자가 `/result`에 `location.state`가 `null`인 상태(직접 URL 진입·새로고침)로 진입할 때
+  - When 결과 컴포넌트가 마운트될 때
+  - Then 화면에 `"결과를 찾을 수 없어요"` 텍스트가 표시된다
+  - And `"시뮬레이션으로"` 버튼이 표시된다
+  - And 사용자가 `"시뮬레이션으로"` 버튼을 탭하면 `navigate('/simulate')`가 1회 호출된다

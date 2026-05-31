@@ -62,7 +62,7 @@ If any check fails, fix it BEFORE completing. Finishing with known errors is a f
 - src/App.tsx: 메인 앱 + React Router 라우팅
 - src/pages/: 페이지 컴포넌트 — 파일명은 PascalCase, "Page" 접미사 금지 (Home.tsx ✅, HomePage.tsx ❌)
 - src/components/: 재사용 컴포넌트 (TDS 래핑)
-- src/hooks/: 커스텀 훅 (useTossLogin, useTossAd 등)
+- src/hooks/: 커스텀 훅 (필요 시 직접 작성 — 토스 SDK용 사전제작 훅은 없음)
 - src/lib/: 유틸리티, 타입, 스토리지 헬퍼
 - src/__tests__/: vitest 테스트
 
@@ -74,12 +74,19 @@ import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
 // Link: import { Link } from 'react-router-dom'
 ```
 
-## Pre-built Hooks (DO NOT RECREATE — 이미 구현됨)
-- src/hooks/useTossLogin.ts — 토스 로그인 (개발환경 자동 테스트 유저, 앱환경 SDK 호출)
-- src/hooks/useTossAd.ts — 토스 인앱 광고 (슬롯 기반, 리워드 광고)
-- src/hooks/useTossPayment.ts — 토스페이 인앱 결제 (상품 결제, 개발환경 시뮬레이션)
-- src/components/AdSlot.tsx — 광고 영역 컴포넌트 (data-ad-slot 기반)
-- CRITICAL: 이 훅들을 import해서 사용하라. 자체 인증/결제/광고 로직 구현 금지
+## Pre-built Components (DO NOT RECREATE — 이미 구현됨)
+- src/components/AdSlot.tsx — 배너 광고 React 래퍼 (`TossAds.attachBanner` 감쌈). 앱인토스 외 환경(로컬/jsdom)에선 조용히 빈 영역 반환
+- src/components/TossRewardAd.tsx — 리워드(보상형) 광고 게이트 (`loadFullScreenAd`/`showFullScreenAd` 감쌈). 시청 완료 전 children 숨김, 실패/타임아웃/앱 외 환경 시 자동 언락
+- CRITICAL: 광고가 필요하면 위 두 컴포넌트를 import해서 사용하라. 자체 광고 로직 재구현 금지
+
+## SDK는 React 훅을 제공하지 않는다 (환각 주의)
+- `@apps-in-toss/web-framework`는 **imperative 함수만** 제공한다. `useTossLogin` / `useTossAd` / `useTossPayment` / `useTossPromotion` 같은 훅은 **존재하지 않는다** — import하면 즉시 FAIL
+- 로그인: 토스 세션 자동 — 호출할 `login()` 없음. 필요 시 `getIsTossLoginIntegratedService()`로 통합 여부만 확인
+- 결제: `createOneTimePurchaseOrder` / `createSubscriptionPurchaseOrder` 직접 호출
+- 광고: 위 래퍼 컴포넌트 사용, 또는 `loadFullScreenAd` / `showFullScreenAd` / `TossAds.attachBanner` 직접 호출
+- 햅틱: `generateHapticFeedback({ type })`
+- 새 React 래퍼가 필요하면 `src/components/`에 직접 구현 (`src/hooks/`는 비어 있음 — 사전제작 토스 SDK 훅 없음)
+- 정확한 시그니처는 `.ai-factory/apps-in-toss-essential.txt` 참조 (없는 API는 사용 금지)
 
 ## Data Storage (localStorage)
 - src/lib/storage.ts — getItem/setItem/removeItem 헬퍼 (이미 존재)

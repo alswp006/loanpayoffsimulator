@@ -278,7 +278,7 @@
   - AC-S1-1, AC-S1-2, AC-S1-3, AC-S1-4, AC-S1-5
   - F1-AC-5, F1-AC-6, F1-AC-9
 - Files:
-  - `src/pages/HomePage.tsx`
+  - `src/pages/Home.tsx`
 - Depends on: Task 3.1
 
 ### Task 5.2 [S2 LoanFormPage: /loan/new + /loan/edit form with validation + navigation]
@@ -308,7 +308,7 @@
   - AC-S2-1, AC-S2-2, AC-S2-3, AC-S2-4, AC-S2-5
   - F1-AC-1, F1-AC-2, F1-AC-3, F1-AC-4, F1-AC-7, F1-AC-8
 - Files:
-  - `src/pages/LoanFormPage.tsx`
+  - `src/pages/LoanForm.tsx`
 - Depends on: Task 3.1
 
 ### Task 5.3 [S3 SimulatePage: extra payment input + run save + both-error dialog]
@@ -338,7 +338,7 @@
   - AC-S3-1, AC-S3-2, AC-S3-3, AC-S3-4, AC-S3-5
   - F2-AC-1, F2-AC-2, F2-AC-3, F2-AC-4, F2-AC-5, F2-AC-6, F2-AC-7, F2-AC-8
 - Files:
-  - `src/pages/SimulatePage.tsx`
+  - `src/pages/Simulate.tsx`
 - Depends on: Task 3.1, Task 3.2, Task 4.3
 
 ### Task 5.4 [S4 ResultPage: summary render + expired/missing + copy + AdSlot placement]
@@ -362,9 +362,9 @@
   - **RouteState 캐스팅**: `RouteState["/result"]`
 - Covers:
   - AC-S4-1, AC-S4-2, AC-S4-3, AC-S4-4, AC-S4-5
-  - F3-AC-1, F3-AC-2
+  - F3-AC-1, F3-AC-2, F3-AC-3
 - Files:
-  - `src/pages/ResultPage.tsx`
+  - `src/pages/Result.tsx`
 - Depends on: Task 3.2
 
 ### Task 5.5 [S5 SchedulePage: reward gate + strategy tab + virtualization]
@@ -396,7 +396,7 @@
 - Covers:
   - AC-S5-1, AC-S5-2, AC-S5-3, AC-S5-4, AC-S5-5, AC-S5-6
 - Files:
-  - `src/pages/SchedulePage.tsx`
+  - `src/pages/Schedule.tsx`
   - `package.json` (react-window 미설치 시 의존성 추가)
 - Depends on: Task 3.2, Task 3.3, Task 4.4
 
@@ -409,8 +409,8 @@
     - 본문에 `"Snowball: 잔액이 작은 대출부터"` 포함
     - 본문에 `"Avalanche: 금리가 높은 대출부터"` 포함
   - 외부 링크 이동 코드 금지(패스/페일):
-    - `SettingsPage.tsx`에 `window.open` 호출 코드가 없다.
-    - `SettingsPage.tsx`에 `location.href =` 또는 `document.location.href =` 변경 코드가 없다.
+    - `Settings.tsx`에 `window.open` 호출 코드가 없다.
+    - `Settings.tsx`에 `location.href =` 또는 `document.location.href =` 변경 코드가 없다.
   - BottomSheet 오픈 실패 처리:
     - 탭 핸들러를 try/catch로 감싸고, catch 시 Toast `"열 수 없어요. 다시 시도해주세요"` 표시
     - catch 이후에도 컴포넌트가 언마운트되지 않고 화면이 유지된다(에러 throw 금지)
@@ -418,7 +418,7 @@
 - Covers:
   - AC-S6-1, AC-S6-2, AC-S6-3, AC-S6-4
 - Files:
-  - `src/pages/SettingsPage.tsx`
+  - `src/pages/Settings.tsx`
 - Depends on: Task 1.1
 
 ### Epic 5 Risk Analysis
@@ -469,8 +469,8 @@
 ---
 
 ## AC Coverage
-- Total ACs in SPEC (visible in prompt): **55**
-- Covered by tasks: **55**
+- Total ACs in SPEC (visible in prompt): **56**
+- Covered by tasks: **56**
   - AC-S1-1~5 → Task 5.1
   - AC-S2-1~5 → Task 5.2 (+ 저장/검증 근거 Task 2.1)
   - AC-S3-1~5 → Task 5.3 (+ 엔진/저장 근거 Task 4.3, Task 2.2)
@@ -484,5 +484,5 @@
   - F1-AC-1~4,7,8 → Task 5.2 (+ storage Task 2.1)
   - F1-AC-5,6,9,10 → Task 5.1 (+ storage Task 2.1)
   - F2-AC-1~8 → Task 5.3 (+ runs storage Task 2.2, engine Task 4.3)
-  - F3-AC-1~2 → Task 5.4
+  - F3-AC-1~3 → Task 5.4
 - Uncovered: **0**
