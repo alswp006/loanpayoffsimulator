@@ -26,17 +26,27 @@ export function mockTds() {
     Button: ({ children, onClick, ...props }: any) =>
       React.createElement("button", { onClick, ...props }, children),
 
+    TextButton: ({ children, onClick }: any) =>
+      React.createElement("button", { onClick }, children),
+
+    // Fixed bottom CTA wrapper — render children so the inner Button is testable.
+    FixedBottomCTA: ({ children }: any) =>
+      React.createElement("div", { "data-slot": "fixed-bottom-cta" }, children),
+
+    // Real ListRow renders content via contents/left/right props (no children).
+    // Render all slots so tests can assert on row content + interact with actions.
     ListRow: Object.assign(
-      ({ children, onClick, ...props }: any) =>
-        React.createElement("div", { onClick, role: "listitem", ...props }, children),
+      ({ children, onClick, contents, left, right }: any) =>
+        React.createElement("div", { onClick, role: "listitem" }, left, contents, children, right),
       {
         Text: ({ children }: any) => React.createElement("span", null, children),
-        Texts: ({ top, bottom, type }: any) =>
+        Texts: ({ top, middle, bottom, type }: any) =>
           React.createElement(
             React.Fragment,
             null,
             React.createElement("span", { "data-type": type, "data-slot": "top" }, top),
-            React.createElement("span", { "data-slot": "bottom" }, bottom),
+            middle != null && React.createElement("span", { "data-slot": "middle" }, middle),
+            bottom != null && React.createElement("span", { "data-slot": "bottom" }, bottom),
           ),
       },
     ),
@@ -109,11 +119,14 @@ export function mockTds() {
     ),
 
     Top: Object.assign(
-      ({ children, title }: any) =>
+      ({ children, title, right, upper, lower }: any) =>
         React.createElement(
           "nav",
           { role: "navigation" },
           title && React.createElement("h1", null, title),
+          upper,
+          right,
+          lower,
           children,
         ),
       {
@@ -260,9 +273,10 @@ export function mockAppsInToss() {
 // In tests, render the children directly (ad always "watched").
 export function mockTossRewardAd() {
   vi.mock("@/components/TossRewardAd", () => ({
-    TossRewardAd: ({ children, onReward }: any) => {
-      // Auto-trigger onReward in tests to unlock content
-      if (onReward) setTimeout(onReward, 0);
+    // Real prop is `onRewarded`; render children directly (ad always "watched")
+    // and fire the reward callback so unlock side-effects run.
+    TossRewardAd: ({ children, onRewarded }: any) => {
+      if (onRewarded) setTimeout(onRewarded, 0);
       return children;
     },
     default: ({ children }: any) => children,

@@ -13,11 +13,26 @@ interface AdSlotProps {
 
 let tossAdsInitialized = false;
 
+// Outside the Toss WebView, `isSupported()` THROWS (it is not a no-op that
+// returns false), so every bridge probe must be wrapped — otherwise the thrown
+// error escapes the effect and React unmounts the whole tree (white screen).
+function isBannerSupported(): boolean {
+  try {
+    return TossAds.attachBanner.isSupported?.() === true;
+  } catch {
+    return false;
+  }
+}
+
 function ensureInitialized() {
   if (tossAdsInitialized) return;
-  if (!TossAds.initialize.isSupported?.()) return;
-  TossAds.initialize({});
-  tossAdsInitialized = true;
+  try {
+    if (!TossAds.initialize.isSupported?.()) return;
+    TossAds.initialize({});
+    tossAdsInitialized = true;
+  } catch {
+    /* not in Toss WebView — skip init */
+  }
 }
 
 /**
@@ -35,7 +50,7 @@ export function AdSlot({ adGroupId, className, variant, theme }: AdSlotProps) {
   useEffect(() => {
     const target = containerRef.current;
     if (!target) return;
-    if (!TossAds.attachBanner.isSupported?.()) return;
+    if (!isBannerSupported()) return;
 
     ensureInitialized();
 
